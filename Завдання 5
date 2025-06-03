@@ -1,0 +1,26 @@
+1 
+
+users.json
+
+[
+  { "name": "Alice", "age": 30 },
+  { "name": "Bob", "age": 25 }
+]
+
+
+2
+
+require 'json'
+
+file = File.read('users.json')
+users = JSON.parse(file)
+
+total_age = 0
+
+users.each do |user|
+  puts "Name: #{user['name']}, Age: #{user['age']}"
+  total_age += user['age']
+end
+
+average_age = total_age.to_f / users.size
+puts "\nAverage Age: #{average_age.round(2)}"
